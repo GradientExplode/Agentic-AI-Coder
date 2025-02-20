@@ -50,6 +50,7 @@ const copyWasmFiles = {
 				"c_sharp",
 				"ruby",
 				"java",
+				"julia",
 				"php",
 				"swift",
 			]

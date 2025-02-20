@@ -11,6 +11,7 @@ import {
 	csharpQuery,
 	rubyQuery,
 	javaQuery,
+	juliaQuery,
 	phpQuery,
 	swiftQuery,
 } from "./queries"
@@ -111,6 +112,10 @@ export async function loadRequiredLanguageParsers(filesToParse: string[]): Promi
 			case "java":
 				language = await loadLanguage("java")
 				query = language.query(javaQuery)
+				break
+			case "jl":
+				language = await loadLanguage("julia")
+				query = language.query(juliaQuery)
 				break
 			case "php":
 				language = await loadLanguage("php")

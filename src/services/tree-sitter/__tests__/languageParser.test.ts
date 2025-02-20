@@ -69,6 +69,14 @@ describe("Language Parser", () => {
 			expect(parsers.py).toBeDefined()
 		})
 
+		it("should load Julia parser for .jl files", async () => {
+			const files = ["test.jl"]
+			const parsers = await loadRequiredLanguageParsers(files)
+
+			expect(ParserMock.Language.load).toHaveBeenCalledWith(expect.stringContaining("tree-sitter-julia.wasm"))
+			expect(parsers.jl).toBeDefined()
+		})
+
 		it("should load multiple language parsers as needed", async () => {
 			const files = ["test.js", "test.py", "test.rs", "test.go"]
 			const parsers = await loadRequiredLanguageParsers(files)

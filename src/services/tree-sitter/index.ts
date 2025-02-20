@@ -71,6 +71,7 @@ function separateFiles(allFiles: string[]): { filesToParse: string[]; remainingF
 		// Ruby
 		"rb",
 		"java",
+		"jl",
 		"php",
 		"swift",
 	].map((e) => `.${e}`)

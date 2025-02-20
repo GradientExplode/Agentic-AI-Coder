@@ -169,6 +169,7 @@ describe("Tree-sitter Service", () => {
 				"/test/path/main.rs",
 				"/test/path/program.cpp",
 				"/test/path/code.go",
+				"/test/path/app.jl",
 			]
 
 			;(listFiles as jest.Mock).mockResolvedValue([mockFiles, new Set()])
@@ -197,6 +198,7 @@ describe("Tree-sitter Service", () => {
 				rs: { parser: mockParser, query: mockQuery },
 				cpp: { parser: mockParser, query: mockQuery },
 				go: { parser: mockParser, query: mockQuery },
+				jl: { parser: mockParser, query: mockQuery },
 			})
 			;(fs.readFile as jest.Mock).mockResolvedValue("function test() {}")
 
@@ -207,6 +209,7 @@ describe("Tree-sitter Service", () => {
 			expect(result).toContain("main.rs")
 			expect(result).toContain("program.cpp")
 			expect(result).toContain("code.go")
+			expect(result).toContain("app.jl")
 		})
 
 		it("should normalize paths in output", async () => {
